@@ -1,5 +1,3 @@
-/* Mobile First стили */
-
 /* Базовые стили */
 * {
     box-sizing: border-box;
@@ -10,82 +8,76 @@
 body {
     font-family: sans-serif;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
     color: #333;
 }
 
 .container {
-    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
     padding: 0 15px;
 }
 
-/* Стили для шапки (Mobile First) */
+/* Стили для шапки */
 #site-header {
     background-color: #f8f9fa;
-    padding: 15px 0;
+    width: 100%;
     border-bottom: 1px solid #e9ecef;
 }
 
 .header-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    padding: 10px 0;
 }
 
 .logo {
+    grid-row: 1 / 3;
+    grid-column: 1;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
     font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.site-title {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
 }
 
 .top-menu {
+    grid-row: 1;
+    grid-column: 2 / 5;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .top-menu a {
-    padding: 8px 0;
     text-decoration: none;
     color: #007bff;
-    border-bottom: 1px solid #e9ecef;
+    padding: 5px 10px;
 }
 
 .top-menu a:hover {
     text-decoration: underline;
 }
 
-.top-menu a:last-child {
-    border-bottom: none;
+.site-title {
+    grid-row: 2;
+    grid-column: 2;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 0;
 }
 
-/* Стили для основного контента (Mobile First) */
+/* Стили для основного контента */
 main {
-    padding: 20px 0;
-}
-
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.hyperlinks-block {
-    order: 2;
-}
-
-.table-block {
-    order: 1;
-}
-
-.form-block {
-    order: 3;
+    margin: 20px auto;
 }
 
 h1 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    margin: 20px 0 15px 0;
 }
 
 .hyperlinks-list {
@@ -93,11 +85,10 @@ h1 {
 }
 
 .hyperlinks-list li {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .image-map-container {
-    margin-top: 10px;
     position: relative;
     display: inline-block;
 }
@@ -155,6 +146,7 @@ h1 {
 #main-form textarea,
 #main-form select {
     width: 100%;
+    max-width: 300px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -192,96 +184,8 @@ h1 {
     margin: 5px 0;
 }
 
-/* Media Query для планшетов (768px и выше) */
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-        margin: 0 auto;
-    }
-
-    .header-grid {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .logo {
-        margin-bottom: 0;
-        margin-right: 15px;
-    }
-
-    .site-title {
-        margin-bottom: 0;
-        margin-right: auto;
-    }
-
-    .top-menu {
-        flex-direction: row;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .top-menu a {
-        padding: 0 15px;
-        border-bottom: none;
-        border-right: 1px solid #e9ecef;
-    }
-
-    .top-menu a:last-child {
-        border-right: none;
-    }
-
-    .content-wrapper {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .hyperlinks-block {
-        order: 1;
-        flex: 0 0 70%;
-        padding-right: 20px;
-    }
-
-    .table-block {
-        order: 2;
-        flex: 0 0 30%;
-    }
-
-    .form-block {
-        order: 3;
-        flex: 0 0 100%;
-    }
-}
-
-/* Media Query для десктопов (1024px и выше) */
-@media (min-width: 1024px) {
-    .container {
-        max-width: 1200px;
-    }
-
-    .header-grid {
-        flex-wrap: nowrap;
-    }
-
-    .top-menu {
-        width: auto;
-        margin-top: 0;
-    }
-
-    .content-wrapper {
-        flex-wrap: nowrap;
-    }
-
-    .hyperlinks-block {
-        flex: 0 0 60%;
-        padding-right: 30px;
-    }
-
-    .table-block {
-        flex: 0 0 40%;
-    }
-
-    .form-block {
-        flex: 0 0 100%;
-    }
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #eee;
 }
